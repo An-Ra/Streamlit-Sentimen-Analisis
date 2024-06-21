@@ -10,6 +10,10 @@ vectorizer = joblib.load("tfidf_vectorizer.sav")
 sid = SentimentIntensityAnalyzer()
 
 def predict_sentiment(text):
+    # Translate text to English using googletrans
+    translator = Translator()
+    translated_text = translator.translate(text, src='auto', dest='en').text
+
     # Vectorize the preprocessed text
     text_vectorized = vectorizer.transform([text])
 
