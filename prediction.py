@@ -1,7 +1,6 @@
 import joblib
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from googletrans import Translator
-from model import preprocess_text  # Import preprocessing function if necessary
 
 # Load the saved model and vectorizer
 clf = joblib.load("sentiment_model.sav")
