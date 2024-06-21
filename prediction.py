@@ -14,10 +14,8 @@ def predict_sentiment(text):
     translator = Translator()
     translated_text = translator.translate(text, src='auto', dest='en').text
 
-    # Preprocess the translated text
-
     # Vectorize the preprocessed text
-    text_vectorized = vectorizer.transform([translated_text])
+    text_vectorized = vectorizer.transform([text])
 
     # Make prediction using the trained model
     prediction = clf.predict(text_vectorized)[0]
