@@ -1,17 +1,22 @@
 import joblib
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from model import preprocess_text 
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from googletrans import Translator
+from model import preprocess_text  # Import preprocessing function if necessary
 
 # Load the saved model and vectorizer
-clf = joblib.load("model_sentimen.sav")
+clf = joblib.load("sentiment_model.sav")
 vectorizer = joblib.load("tfidf_vectorizer.sav")
 
 # Initialize VADER sentiment analyzer
 sid = SentimentIntensityAnalyzer()
 
 def predict_sentiment(text):
-    # Preprocess the input text
-    preprocessed_text = preprocess_text(text)
+    # Translate text to English using googletrans
+    translator = Translator()
+    translated_text = translator.translate(text, src='auto', dest='en').text
+
+    # Preprocess the translated text
+    preprocessed_text = preprocess_text(translated_text)
 
     # Vectorize the preprocessed text
     text_vectorized = vectorizer.transform([preprocessed_text])
