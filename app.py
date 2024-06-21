@@ -4,7 +4,7 @@ from prediction import predict_sentiment
 st.title('Sentiment Analysis App')
 
 # Input box for user to enter text
-user_input = st.text_area("Masukan Text:", "")
+user_input = st.text_area("Masukan Teks:", "")
 
 if st.button("Prediksi Sentiment"):
     prediction, compound_score = predict_sentiment(user_input)
