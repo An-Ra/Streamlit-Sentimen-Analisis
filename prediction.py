@@ -3,8 +3,8 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from googletrans import Translator
 
 # Load the saved model and vectorizer
-clf = joblib.load("model_sentimen.sav")
-vectorizer = joblib.load("tfidf_vectorizer.sav")
+clf = joblib.load("model_com.sav")
+vectorizer = joblib.load("vectorizer_com.sav")
 
 # Initialize VADER sentiment analyzer
 sid = SentimentIntensityAnalyzer()
